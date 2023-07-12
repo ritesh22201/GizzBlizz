@@ -1,8 +1,9 @@
 const express = require('express');
-const connection = require('./db');
+const connection = require('./.configs/db');
+const todosRoute = require('./routes/todosRoutes');
 const app = express();
 app.use(express.json());
-
+app.use('/todo', todosRoute);
 
 
 app.listen(process.env.port, async() => {
