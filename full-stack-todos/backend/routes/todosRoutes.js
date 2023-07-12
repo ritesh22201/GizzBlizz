@@ -29,4 +29,24 @@ todosRoute.post('/addTodo', todoMiddleware, async (req, res) => {
     }
 })
 
+todosRoute.patch('/update/:id', async(req, res) => {
+    const {id} = req.params;
+    try {
+        const updatedTodo = await TodoModel.findByIdAndUpdate({_id : id}, req.body, {new : true});
+        res.status(200).send({'msg' : 'Todo updated', updatedTodo});
+    } catch (error) {
+        res.status(400).send({'msg' : error.message});
+    }
+})
+
+todosRoute.delete('/delete/:id', async(req, res) => {
+    const {id} = req.params;
+    try {
+        const deletedTodo = await TodoModel.findByIdAndDelete({_id : id});
+        res.status(200).send({'msg' : 'Todo deleted'});
+    } catch (error) {
+        res.status(400).send({'msg' : error.message});
+    }
+})
+
 module.exports = todosRoute;
