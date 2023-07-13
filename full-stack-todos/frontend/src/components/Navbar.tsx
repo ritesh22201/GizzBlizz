@@ -5,7 +5,8 @@ import '../css/Navbar.css';
 import { FaPlus } from 'react-icons/fa';
 
 const Navbar = () => {
-    // const [openSearch, setOpenSearch] = useState(false);
+    const [dateInput, setDateInput] = useState<string>('');
+
     let monthArr = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -19,7 +20,7 @@ const Navbar = () => {
                     <Heading color={'white'} as={'h1'} size={'lg'} >Today</Heading>
                     <Text color={'gray.300'}>{date}</Text>
                 </Box>
-                <Input focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
+                <Input value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
             </Flex>
             <hr style={{margin : '20px 0'}} />
         </Box>

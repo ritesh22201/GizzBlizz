@@ -6,7 +6,7 @@ export const getTodos = () => (dispatch:any) =>{
     axios.get('http://localhost:8080/todo/')
     .then(res => {
         dispatch({type : GET_TODOS_SUCCESS, payload : res.data})
-        console.log(res)
+        // console.log(res)
     })
     .catch(err => {
         dispatch({type : GET_TODOS_FAILURE, payload : err.message});
@@ -15,10 +15,10 @@ export const getTodos = () => (dispatch:any) =>{
 
 export const postTodos = (newTodo:any) => (dispatch:any) =>{
     dispatch({type : GET_TODOS});
-    axios.post('http://localhost:8080/todo/addTodo', newTodo)
+    return axios.post('http://localhost:8080/todo/addTodo', newTodo)
     .then(res => {
         dispatch({type : POST_TODOS_SUCCESS, payload : res.data})
-        // console.log(res)
+        console.log(res)
     })
     .catch(err => {
         dispatch({type : GET_TODOS_FAILURE, payload : err.message});
