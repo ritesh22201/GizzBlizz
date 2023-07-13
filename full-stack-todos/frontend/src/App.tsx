@@ -10,9 +10,10 @@ import {
   theme,
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
+import Navbar from "./components/Navbar"
 
 export const App = () => (
   <Box>
-    
+    <Navbar/>
   </Box>
 )

@@ -6,6 +6,7 @@ const TodoInput = () => {
         <Box>
             <form>
                 <Input type='text' placeContent={'Add a todo...'} />
+                
             </form>
         </Box>
     )

@@ -1,0 +1,22 @@
+#dateInput {
+    width: 90px;
+    font-size: 55px;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* #dateInput:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+#dateInput:focus::-webkit-datetime-edit {
+    color: black !important;
+} */
+
+#dateInput::before { 
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+/* #dateInput:focus::before,
+#dateInput:valid::before { display: none } */
