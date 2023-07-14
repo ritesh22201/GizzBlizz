@@ -1,11 +1,19 @@
 import { Box, Button, Flex, Heading, Input, Text } from '@chakra-ui/react';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsSearch } from 'react-icons/bs';
 import '../css/Navbar.css';
 import { FaPlus } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import {Dispatch} from 'redux';
+import { getTodos } from '../redux/todosReducer/action';
 
 const Navbar = () => {
+    const dispatch:Dispatch<any> = useDispatch();
     const [dateInput, setDateInput] = useState<string>('');
+    
+    // useEffect(() => {
+    //     dispatch(getTodos(dateInput));
+    // }, [dateInput])
 
     let monthArr = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

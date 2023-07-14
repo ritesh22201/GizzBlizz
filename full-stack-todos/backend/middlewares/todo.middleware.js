@@ -1,9 +1,9 @@
 const TodoModel = require("../models/todosModel");
 
 const todoMiddleware = async(req, res, next) => {
-    const {title, status} = req.body;
+    const {title, status, created_at, priority} = req.body;
 
-    if(title == undefined || status == undefined){
+    if(title == undefined || status == undefined || !created_at || !priority){
         return res.status(400).send({'msg' : 'All fields are required'});
     }
 

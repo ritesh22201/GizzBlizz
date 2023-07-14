@@ -15,7 +15,7 @@ import TodoItem from "./components/TodoItem"
 import Todos from "./components/Todos"
 
 export const App = () => (
-  <Box bg={'#3450a1'}>
+  <Box pb={'20px'} bg={'#3450a1'}>
     <Navbar/>
     <Todos/>
   </Box>

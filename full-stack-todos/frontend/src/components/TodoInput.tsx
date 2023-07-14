@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Input } from '@chakra-ui/react';
 import React, {useState} from 'react'
 import { FaPlus } from 'react-icons/fa';
-import { postTodos } from '../redux/todosReducer/action';
+import { getTodos, postTodos } from '../redux/todosReducer/action';
 import { useDispatch } from 'react-redux';
 import {Dispatch} from 'redux';
 
@@ -9,7 +9,7 @@ const TodoInput = () => {
     const [todo, setTodo] = useState<string>('');
     const dispatch:Dispatch<any> = useDispatch();
 
-    const handleSubmit = (e:React.FormEvent<HTMLFormElement> ) => {
+    const handleSubmit = async(e:React.FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
 
         const newTodo = {
@@ -19,7 +19,8 @@ const TodoInput = () => {
             status : false
         }
 
-        dispatch(postTodos(newTodo));
+        await dispatch(postTodos(newTodo));
+        dispatch(getTodos());
         setTodo('');
     }
 

@@ -1,11 +1,11 @@
 import axios from "axios";
 import { GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS } from "./actionTypes"
 
-export const getTodos = () => (dispatch:any) =>{
+export const getTodos = (dateInput?:string) => (dispatch:any) =>{
     dispatch({type : GET_TODOS});
-    axios.get('http://localhost:8080/todo/')
+    return axios.get(`http://localhost:8080/todo/`, )
     .then(res => {
-        dispatch({type : GET_TODOS_SUCCESS, payload : res.data})
+        dispatch({type : GET_TODOS_SUCCESS, payload : res.data.reverse()})
         // console.log(res)
     })
     .catch(err => {
