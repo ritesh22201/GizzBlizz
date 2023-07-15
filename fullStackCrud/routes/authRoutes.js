@@ -22,15 +22,19 @@ userRouter.post('/register', async(req, res) => {
 userRouter.post('/login', async(req, res) => {
     const {email, password} = req.body;
     try {
-        const user = UserModel.findOne({email});
+        const user = await UserModel.findOne({email});
         if(!user){
-            res.status(200).send({'msg' : 'User not found.'});
+            res.status(400).send({'msg' : 'User not found.'});
         }
         else{
             const verify = await bcrypt.compare(password, user.password);
             if(verify){
-                const token = jwt.sign({email}, process.env.secretKey);
+                const token = jwt.sign({userID : user._id, username : user.username}, process.env.secretKey, {expiresIn : '1h'});
+                // const refreshToken = jwt.sign({userID : user._id, username : user.username}, process.env.refreshKey, {expiresIn : '5h'});
                 res.status(200).send({'msg' : 'Login Successful', token});
+            }
+            else{
+                res.status(400).send({'msg' : 'Wrong Password!!'});
             }
         }
     } catch (error) {
