@@ -23,6 +23,7 @@ postRouter.post('/addPost', auth, async (req, res) => {
         }
         else{
             const post = await PostModel.create(req.body);
+            await post.populate('userID');
             res.status(200).send({ 'msg': 'Post added Successfully', post });
         }
     } catch (error) {
