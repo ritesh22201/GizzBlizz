@@ -50,4 +50,57 @@ postRouter.post('/addPost', auth, async (req, res) => {
     }
 })
 
+postRouter.patch('/update/:id', auth, async (req, res) => {
+    const id = req.params.id;
+    try {
+        const post = await PostModel.findOne({_id : id});
+        if(post.userID.toString() === req.body.userID){
+            const updatedPost = await PostModel.findByIdAndUpdate(req.params.id, req.body, {new : true});
+            res.status(200).send({'msg' : 'Post updated', updatedPost});
+        }
+        else{
+            res.status(200).send({'msg' : 'You are not authorized to update the post'});
+        }
+        
+    } catch (error) {
+        res.status(400).send({ 'msg': error.message });
+    }
+})
+
+postRouter.patch('/like/:id', auth, async (req, res) => {
+    const id = req.params.id;
+    try {
+        const post = await PostModel.findOne({_id : id});
+        const index = post.likes.findIndex((id) => id === String(req.body.userID));
+
+        if(index === -1){
+            post.likes.push(req.body.userID);
+        }
+        else{
+            post.likes = post.likes.filter((id) => id !== String(req.body.userID));
+        }
+        const updatedPost = await PostModel.findByIdAndUpdate(req.params.id, post, {new : true});
+        res.status(200).send({'msg' : 'Post updated', updatedPost});
+    } catch (error) {
+        res.status(400).send({ 'msg': error.message });
+    }
+})
+
+postRouter.patch('/comment/:id', auth, async (req, res) => {
+    const id = req.params.id;
+    try {
+        const post = await PostModel.findOne({_id : id});
+        const index = post.comments.findIndex((id) => id === String(req.body.userID));
+
+        if(index === -1){
+            post.comments.push(req.body.userID);
+        }
+
+        const updatedPost = await PostModel.findByIdAndUpdate(req.params.id, post, {new : true});
+        res.status(200).send({'msg' : 'Post updated', updatedPost});
+    } catch (error) {
+        res.status(400).send({ 'msg': error.message });
+    }
+})
+
 module.exports = postRouter;
