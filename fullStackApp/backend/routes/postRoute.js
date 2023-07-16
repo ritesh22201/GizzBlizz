@@ -35,9 +35,16 @@ postRouter.post('/add', auth, async(req, res) => {
 
 postRouter.patch('/update/:id', auth, async(req, res) => {
     const id = req.params.id;
+    const user = await PostModel.findOne({_id : id});
     try {
-        const updatedPost = await PostModel.findByIdAndUpdate({_id : id}, req.body, {new : true});
-        res.status(200).send({'msg' : 'Post updated successfully', updatedPost});
+        if(user.userID.toString() == req.body.userID){
+            const updatedPost = await PostModel.findByIdAndUpdate({_id : id}, req.body, {new : true});
+            res.status(200).send({'msg' : 'Post updated successfully', updatedPost});
+        }
+        else{
+            res.status(400).send({'msg' : 'You are not authorized to do this.'})
+        }
+
     } catch (error) {
         res.status(400).send({'msg' : error.message})
     }

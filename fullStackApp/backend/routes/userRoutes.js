@@ -6,9 +6,6 @@ const jwt = require('jsonwebtoken');
 const BlacklistModel = require('../models/blacklist');
 const userRouter = express.Router();
 
-userRouter.get('/', (req, res) => {
-    res.send('Hello from Homepage');
-})
 
 userRouter.post('/register', validator ,async(req, res) => {
     const {password} = req.body;
@@ -62,7 +59,7 @@ userRouter.get('/logout', async(req, res) => {
         }
           
     } catch (error) {
-        res.status(400).send({'msg' : error.message});
+       res.status(400).send({'msg' : error.message});
     }
 })
 
