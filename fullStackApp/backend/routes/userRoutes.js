@@ -3,6 +3,7 @@ const UserModel = require('../models/userModel');
 const validator = require('../middlewares/validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const BlacklistModel = require('../models/blacklist');
 const userRouter = express.Router();
 
 userRouter.get('/', (req, res) => {
@@ -38,6 +39,28 @@ userRouter.post('/login', async(req, res) => {
             }
         }
         
+    } catch (error) {
+        res.status(400).send({'msg' : error.message});
+    }
+})
+
+userRouter.get('/logout', async(req, res) => {
+    const token = req.headers.authorization?.split(' ')[1];
+    try {
+        if(!token){
+            res.status(400).send({'msg' : 'Invalid token'});
+        }
+        else{
+            const blackListedToken = await BlacklistModel.findOne({token});
+            if(blackListedToken){
+                res.status(400).send({'msg' : 'Please login first'})
+            }
+            else{
+                const blacklistUser = await BlacklistModel.create({token});
+                res.status(200).send({'msg' : 'User logged out successfully'});
+            }
+        }
+          
     } catch (error) {
         res.status(400).send({'msg' : error.message});
     }
