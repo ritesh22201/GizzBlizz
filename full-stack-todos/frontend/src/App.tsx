@@ -13,10 +13,11 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import Navbar from "./components/Navbar"
 import TodoItem from "./components/TodoItem"
 import Todos from "./components/Todos"
+import MainRoutes from "./Routes/MainRoutes"
 
 export const App = () => (
   <Box pb={'20px'} bg={'#3450a1'}>
     <Navbar/>
-    <Todos/>
+    <MainRoutes />
   </Box>
 )
