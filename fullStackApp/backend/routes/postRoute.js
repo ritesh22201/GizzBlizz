@@ -8,8 +8,8 @@ const postRouter = express.Router();
 
 postRouter.get('/', auth, async(req, res) => {
     const userID = req.body.userID;
-    const minComments = req.query.minComments;
-    const maxComments = req.query.maxComments;
+    const minComments = req.query.minComments;  //2                   2 <= range <= 4
+    const maxComments = req.query.maxComments;  // 4
     try {
         let query = {userID};
         if(minComments){
