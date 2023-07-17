@@ -10,7 +10,9 @@ const todoSchema = mongoose.Schema({
     status: {
         type: String,
         required : true
-    }
+    },
+    userId : {type : mongoose.Schema.Types.ObjectId, ref : 'user', required : true},
+    name : { type : String }
 })
 
 const TodoModel = mongoose.model('todo', todoSchema);
