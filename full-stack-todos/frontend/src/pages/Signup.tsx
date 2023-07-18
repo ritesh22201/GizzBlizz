@@ -149,7 +149,7 @@ export default function Signup() {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link to={'/login'} style={{color : 'blue'}}>Signup</Link>
+                  Already a user? <Link to={'/login'} style={{color : 'blue'}}>Login</Link>
                 </Text>
               </Stack>
             </Stack>

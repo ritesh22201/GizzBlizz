@@ -12,7 +12,6 @@ import {
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import Navbar from "./components/Navbar"
 import TodoItem from "./components/TodoItem"
-import Todos from "./components/Todos"
 import MainRoutes from "./Routes/MainRoutes"
 
 export const App = () => (

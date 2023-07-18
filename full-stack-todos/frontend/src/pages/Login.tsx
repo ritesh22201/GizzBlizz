@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import { login } from '../redux/authReducer/action';
 
@@ -26,7 +26,8 @@ export type LoginType = {
 export default function Login() {
   const dispatch: Dispatch<any> = useDispatch();
   const toast = useToast();
-  const {token, isAuth, isError} = useSelector((store: any) => store.authReducer);
+  const navigate = useNavigate();
+  const { token, isAuth, isError } = useSelector((store: any) => store.authReducer);
   const [formData, setFormData] = useState<LoginType>({
     email: '',
     pass: ''
@@ -48,22 +49,28 @@ export default function Login() {
   }
 
   useEffect(() => {
-    if(token){
+    if (token) {
       localStorage.setItem('isAuth', JSON.stringify(isAuth));
-      toast({
-        title: 'Success',
-        description: 'User logged in successfully',
-        position : 'top',
-        status: 'success',
-        duration: 4000,
-        isClosable: true,
-      })
+        toast({
+          title: 'Success',
+          description: 'User logged in successfully',
+          position: 'top',
+          status: 'success',
+          duration: 4000,
+          isClosable: true,
+        })
+
+        setTimeout(() => {
+          navigate('/');
+          window.location.reload();
+        }, 4000)
+        
     }
-    else if(isError){
+    else if (isError) {
       toast({
         title: 'Login Failed!!',
         description: isError,
-        position : 'top',
+        position: 'top',
         status: 'error',
         duration: 4000,
         isClosable: true,
@@ -102,7 +109,7 @@ export default function Login() {
                   align={'start'}
                   justify={'space-between'}>
                   <Text>New here ? </Text>
-                  <Link to={'/signup'} style={{ color: 'blue' }}>Login</Link>
+                  <Link to={'/signup'} style={{ color: 'blue' }}>Signup</Link>
                 </Stack>
                 <Button
                   type='submit'
