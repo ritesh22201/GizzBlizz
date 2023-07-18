@@ -12,10 +12,11 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
   useToast,
+  VStack,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../redux/authReducer/action';
@@ -73,6 +74,12 @@ export default function Signup() {
     e.preventDefault();
 
     dispatch(signup(formData));
+    setFormData({
+      name: '',
+      email: '',
+      pass: '',
+      age: ''
+    })
   }
 
   return (
@@ -81,7 +88,7 @@ export default function Signup() {
       minH={'100vh'}
       justify={'center'}
     >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+      <Stack spacing={8} mx={'auto'} w={{base : '95%', sm : '95%', md : '83%', lg : '50%', xl : '40%'}} py={12} px={6}>
         <Stack align={'center'}>
           <Heading color={'gray.300'} fontSize={'4xl'} textAlign={'center'}>
             SIGN UP
@@ -94,20 +101,20 @@ export default function Signup() {
           p={8}>
           <form onSubmit={handleSubmit}>
             <Stack spacing={4}>
-              <HStack>
-                <Box>
+              <VStack w={'100%'}>
+                {/* <Box> */}
                   <FormControl id="firstName" isRequired>
                     <FormLabel>Name</FormLabel>
                     <Input type="text" name='name' value={formData.name} onChange={(e) => handleChange(e)} />
                   </FormControl>
-                </Box>
-                <Box>
+                {/* </Box> */}
+                {/* <Box> */}
                   <FormControl id="lastName">
                     <FormLabel>Age</FormLabel>
                     <Input type="text" name='age' value={formData.age} onChange={(e) => handleChange(e)} />
                   </FormControl>
-                </Box>
-              </HStack>
+                {/* </Box> */}
+              </VStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
                 <Input type="email" name='email' value={formData.email} onChange={(e) => handleChange(e)} />
@@ -142,7 +149,7 @@ export default function Signup() {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Already a user? <Link to={'/login'} style={{color : 'blue'}}>Signup</Link>
                 </Text>
               </Stack>
             </Stack>

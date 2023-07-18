@@ -1,4 +1,4 @@
-import { AUTH_REQ, REGISTER_FAILURE, REGISTER_SUCCESS } from "./actionTypes";
+import { AUTH_REQ, AUTH_REQ_FAILURE, AUTH_REQ_SUCCESS, REGISTER_FAILURE, REGISTER_SUCCESS } from "./actionTypes";
 
 let initialState = {
     isAuth : false,
@@ -15,6 +15,7 @@ type Action = {
 
 export const reducer = (state = initialState, {type, payload}:Action) => {
     switch(type){
+        
         case AUTH_REQ : {
             return {
                 ...state,
@@ -38,6 +39,26 @@ export const reducer = (state = initialState, {type, payload}:Action) => {
                 isLoading : false,
                 isError : payload,
                 isRegistered : ''
+            }
+        }
+
+        case AUTH_REQ_SUCCESS : {
+            return {
+                ...state,
+                isLoading : false,
+                isError : '',
+                isAuth : true,
+                token : payload
+            }
+        }
+
+        case AUTH_REQ_FAILURE : {
+            return {
+                ...state,
+                isLoading : false,
+                isError : payload,
+                isAuth : false,
+                token : ''
             }
         }
         
