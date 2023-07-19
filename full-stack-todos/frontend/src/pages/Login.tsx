@@ -50,7 +50,7 @@ export default function Login() {
 
   useEffect(() => {
     if (token) {
-      localStorage.setItem('isAuth', JSON.stringify(isAuth));
+      localStorage.setItem('token', JSON.stringify(token));
         toast({
           title: 'Success',
           description: 'User logged in successfully',

@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { Form } from "../../pages/Signup";
-import { AUTH_REQ, AUTH_REQ_FAILURE, AUTH_REQ_SUCCESS, REGISTER_FAILURE, REGISTER_SUCCESS } from "./actionTypes";
+import { AUTH_REQ, AUTH_REQ_FAILURE, AUTH_REQ_SUCCESS, LOGOUT_FAILURE, LOGOUT_SUCCESS, REGISTER_FAILURE, REGISTER_SUCCESS } from "./actionTypes";
 import { LoginType } from "../../pages/Login";
 
 export const signup = (formData: Form) => (dispatch: any) => {
@@ -27,4 +27,23 @@ export const login = (formData: LoginType) => (dispatch: any) => {
             // console.log(err)
             dispatch({ type: AUTH_REQ_FAILURE, payload: err.response.data });
         })
+}
+
+
+export const logout = (token:string | null) => (dispatch:any) => {
+
+    const config:AxiosRequestConfig = {
+        headers : {
+            Authorization : `Bearer ${token}`
+        }
+    }
+
+    dispatch({type : AUTH_REQ});
+    axios.get('https://todoconfig.onrender.com/users/logout', config)
+    .then(res => {
+        dispatch({type : LOGOUT_SUCCESS })
+    })
+    .catch(err => {
+        dispatch({type : LOGOUT_FAILURE})
+    })
 }

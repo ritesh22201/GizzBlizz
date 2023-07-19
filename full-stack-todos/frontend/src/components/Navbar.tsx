@@ -6,21 +6,27 @@ import { FaPlus } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { getTodos } from '../redux/todosReducer/action';
+import { logout } from '../redux/authReducer/action';
 
 const Navbar = () => {
     const dispatch: Dispatch<any> = useDispatch();
-    const auth = JSON.parse(localStorage.getItem('isAuth') || 'false');
+    const token: string | null= localStorage.getItem('token');
     const [dateInput, setDateInput] = useState<string>('');
 
     useEffect(() => {
-        dispatch(getTodos());
-    }, [])
+        dispatch(getTodos(token));
+    }, [token])
 
     let monthArr = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     const today = new Date();
     const date = today.getDate() + ' ' + monthArr[today.getMonth()] + ' ' + today.getFullYear() + ', ' + dayArr[today.getDay()];
+
+    const handleLogout = () => {
+        dispatch(logout(token))
+        localStorage.removeItem('token');
+    }
 
     return (
         <Box p={'10px 30px'} margin={'auto'}>
@@ -30,7 +36,7 @@ const Navbar = () => {
                     <Text color={'gray.300'}>{date}</Text>
                 </Box>
                 <Box>
-                    {auth && <Button color={'red'}>Logout</Button>}
+                    {token && <Button onClick={handleLogout} color={'red'}>Logout</Button>}
                     <Input value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
                 </Box>
             </Flex>

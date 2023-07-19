@@ -9,13 +9,14 @@ import { FaEdit, FaTrash, FaTrashAlt } from 'react-icons/fa';
 const TodoItem = () => {
     const [editInput, setEditInput] = useState<boolean>(false);
     const dispatch: Dispatch<any> = useDispatch();
+    const token: string | null = localStorage.getItem('token');
     const { data } = useSelector((store: any) => store.todoReducer);
 
     let monthArr = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     useEffect(() => {
-        dispatch(getTodos());
-    }, [])
+        dispatch(getTodos(token));
+    }, [token])
 
     return (
         <Box p={'10px 15px'} w={{ base: '100%', sm: '100%', md: '90%', lg: '60%', xl: '50%' }} m={'30px auto'}>
@@ -34,8 +35,8 @@ const TodoItem = () => {
                     </Flex>
                     <Text>{el.created_at.split('T')[0]}</Text>
                     <Flex gap={'10px'}>
-                        <Button onClick={() => setEditInput(true)} _hover={{backgroundColor : '#237afe'}} borderRadius={'50%'} bg={'#237afe'} color={'gray.200'}>{<FaEdit />}</Button>
-                        <Button color={'gray.200'} fontSize={'25px'} w={'40px'} _hover={{backgroundColor : '#e65b65'}} bg={'#e65b65'} borderRadius={'50%'}>{<FaTrash/>}</Button>
+                        <Button onClick={() => setEditInput(true)} _hover={{ backgroundColor: '#237afe' }} borderRadius={'50%'} bg={'#237afe'} color={'gray.200'}>{<FaEdit />}</Button>
+                        <Button color={'gray.200'} fontSize={'25px'} w={'40px'} _hover={{ backgroundColor: '#e65b65' }} bg={'#e65b65'} borderRadius={'50%'}>{<FaTrash />}</Button>
                     </Flex>
                 </Flex>
             })}
