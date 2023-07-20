@@ -1,18 +1,47 @@
-.container {
-    height: 90vh;
+.container { 
     display: grid;
-    place-items: center;
+    gap: 20px;
+    place-content: center;
+    align-self: center;
+    grid-template-columns: repeat(6, 100px);
+    padding: 32px;
+    border: 10px solid;
+    &:hover .box{
+        /* height: 300px; */
+        margin-top: 200px;
+    }
 }
 
 .box {
-    width: 150px;
-    height: 150px;
-    background-color: yellow;
-    transition-property: border-radius, background-color;
-    transition-duration: 1s, 3s;
+    width: 100px;
+    height: 100px;
+    transition-property: all;
+    transition-duration: 1s;
+}
 
-    &:hover {
-        border-radius: 50%;
-        background-color: red;
-    }
+.b1{
+    background-color: red;
+    transition-timing-function: ease;
+}
+
+.b2{
+    background-color: yellow;
+    transition-timing-function: linear;
+}
+.b3{
+    background-color: orange;
+    transition-timing-function: ease-in;
+}
+.b4{
+    background-color: green;
+    transition-timing-function: ease-out;
+}
+.b5{
+    background-color: blue;
+    transition-timing-function: ease-in-out;
+}
+
+.b6{
+    background-color: cornflowerblue;
+    transition-timing-function: cubic-bezier(0.97,-0.15, 0.11, 1.18);
 }
