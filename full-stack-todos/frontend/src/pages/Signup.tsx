@@ -16,7 +16,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../redux/authReducer/action';
@@ -31,6 +31,7 @@ export type Form = {
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
   const dispatch: Dispatch<any> = useDispatch();
   const { isError, isRegistered } = useSelector((store: any) => store.authReducer);
   const toast = useToast();
@@ -62,6 +63,11 @@ export default function Signup() {
         duration: 4000,
         isClosable: true,
       })
+
+      setTimeout(() => {
+        navigate('/login');
+        window.location.reload();
+      }, 4000)
     }
   }, [isError, isRegistered])
 

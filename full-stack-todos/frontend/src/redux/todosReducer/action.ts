@@ -1,7 +1,7 @@
 import axios, { AxiosHeaders, AxiosRequestConfig } from "axios";
 import { GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS } from "./actionTypes"
 
-export const getTodos = (token: string | null) => (dispatch: any) => {
+export const getTodos = (token:string) => (dispatch: any) => {
 
     const config: AxiosRequestConfig = {
         headers: {

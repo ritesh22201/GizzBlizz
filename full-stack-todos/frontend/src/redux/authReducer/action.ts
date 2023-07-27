@@ -21,7 +21,7 @@ export const login = (formData: LoginType) => (dispatch: any) => {
     axios.post('https://todoconfig.onrender.com/users/login', formData)
         .then(res => {
             // console.log(res);
-            dispatch({ type: AUTH_REQ_SUCCESS, payload: res.data.token });
+            dispatch({ type: AUTH_REQ_SUCCESS, payload: res.data });
         })
         .catch(err => {
             // console.log(err)

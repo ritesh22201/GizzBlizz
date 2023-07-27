@@ -5,7 +5,7 @@ let initialState = {
     isError : '',
     isLoading : false,
     isRegistered : '',
-    token : ''
+    token : {}
 }
 
 type Action = {

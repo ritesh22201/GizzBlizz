@@ -15,8 +15,25 @@
     font-size: 40px;
 }
 
-#addBtn:hover{
+#addBtn:hover {
     scale: 1.1;
     background-color: #041955;
     transition: ease-out;
+}
+
+.userBox {
+    display: none;
+    transition-property: all; 
+    transition-duration: 0.5s;
+}
+
+.userBox:hover{
+    display: block;
+}
+
+.userIcon:hover + .userBox {
+    transition-property: all;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    display: block;
 }

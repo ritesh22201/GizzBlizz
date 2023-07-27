@@ -49,7 +49,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    if (token) {
+    if (token.token) {
       localStorage.setItem('token', JSON.stringify(token));
         toast({
           title: 'Success',

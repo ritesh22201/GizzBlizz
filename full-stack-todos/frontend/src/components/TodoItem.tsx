@@ -9,14 +9,17 @@ import { FaEdit, FaTrash, FaTrashAlt } from 'react-icons/fa';
 const TodoItem = () => {
     const [editInput, setEditInput] = useState<boolean>(false);
     const dispatch: Dispatch<any> = useDispatch();
-    const token: string | null = localStorage.getItem('token');
+    const value: string | null = localStorage.getItem('token');
+    const token: { [key: string]: any } | null = value ? JSON.parse(value) : null;
     const { data } = useSelector((store: any) => store.todoReducer);
 
     let monthArr = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     useEffect(() => {
-        dispatch(getTodos(token));
-    }, [token])
+        if(token && token.token){
+            dispatch(getTodos(token.token));
+        }
+    }, [token?.token])
 
     return (
         <Box p={'10px 15px'} w={{ base: '100%', sm: '100%', md: '90%', lg: '60%', xl: '50%' }} m={'30px auto'}>
