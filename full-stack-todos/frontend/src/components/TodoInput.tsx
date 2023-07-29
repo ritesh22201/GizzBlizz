@@ -9,7 +9,6 @@ const TodoInput = () => {
     const [todo, setTodo] = useState<string>('');
     const dispatch: Dispatch<any> = useDispatch();
     const toast = useToast();
-    // const {token} = useSelector((store:any) => store.authReducer);
     const value: string | null = localStorage.getItem('token');
     const token: { [key: string]: any } | null = value ? JSON.parse(value) : null;
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
