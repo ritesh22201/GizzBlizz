@@ -6,7 +6,7 @@ import TodoItem from '../components/TodoItem';
 const Home = () => {
   const token: string | null = localStorage.getItem('token');
   return (
-    <Box h={'100vh'}>
+    <Box h={'90vh'}>
       {token && <TodoInput />}
       {token && <TodoItem />}
     </Box>
