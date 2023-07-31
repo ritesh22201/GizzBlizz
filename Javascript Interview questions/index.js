@@ -479,3 +479,29 @@ const filteredArr = customers.filter(el => {
 })
 
 console.log(filteredArr);
+
+
+let arr = [1,2,3,4,6,7,8,9];
+
+function double(num){
+    return num * 2;
+}
+
+let doubledData = arr.forEach(double); // Garbage collection of doubled data because eventually it will be deleted and returned undefined;
+console.log(doubledData)
+
+
+function doubleMap(num){
+    return num * 2;
+}
+
+let doubledMappedData = arr.map(doubleMap); 
+console.log(doubledMappedData)
+
+
+function add(acc, curr){
+    return acc + curr;
+}
+
+let sum = arr.reduce(add, 0); 
+console.log(sum);
