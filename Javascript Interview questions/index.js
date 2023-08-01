@@ -848,18 +848,52 @@ let strings2 = [
   
   // Find the highest grade for people whose name starts with 'J' or 'P'
   
+  let highestGrdJP = persons.reduce((acc, curr) => {
+    if(curr.name.startsWith('J') || curr.name.startsWith('P') && curr.grade > acc){
+        acc = curr.grade;
+    }
+    return acc;
+  }, -Infinity)
+
+  console.log(highestGrdJP)
 
   // Sort the peopleGrade in ascending order and log the value of peopleGrade. Notice did the elements of peopleGrade got changed?
 
+  console.log(peopleGrade.sort((a, b) => a - b));
+
   // Sort the peopleGrade in descending order
 
+  console.log(peopleGrade.sort((a, b) => b - a));
   
   // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
   
+  let descSort = [...peopleGrade].sort((a, b) => b - a);
+  console.log(descSort);
 
   // Sort the array peopelName in ascending `ABCD..Za....z`
   
-
+  peopleName.sort((a, b) => {
+    if(a > b){
+        return 1;
+    }
+    else if(a < b){
+        return -1;
+    }
+    else{
+        return 0;
+    }
+  });
   
   // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
   
+  console.log([...peopleName].sort((a, b) => {
+    if(a > b){
+        return 1;
+    }
+    else if(a < b){
+        return -1;
+    }
+    else{
+        return 0;
+    }
+  }));
