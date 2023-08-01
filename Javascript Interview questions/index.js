@@ -516,7 +516,7 @@ let words = [
     "pearl",
     "orchard",
     "crackpot",
-    "rhythm",
+    "rhythm"
 ];
 
 // - Write a function findLongestWord that takes an array of words and returns the longest word from the array. (Use above array "words" to test it). If there are 2 with the same length, it should return the first occurrence.
@@ -545,50 +545,97 @@ console.log(lengthArr);
 
 // - Create a new array that only contains word with atleast one vowel.
 
-
+const vowelArr = words.filter(el => el.includes('a') || el.includes('e') || el.includes('i') || el.includes('o') || el.includes('u'));
+console.log(vowelArr);
 
 // - Find the index of the word "rhythm"
 
-
+console.log(words.indexOf('rhythm'));
 
 // - Create a new array that contians words not starting with vowel.
 
+const notVowelArr = words.filter(el => el[0] !== 'a' && el[0] !== 'e' && el[0] !== 'i' && el[0] !== 'o' && el[0] !== 'u');
+console.log(notVowelArr);
 
 // - Create a new array that contianse words not ending with vowel
 
-
+const notEndVowelArr = words.filter(el => el[el.length-1] !== 'a' && el[el.length-1] !== 'e' && el[el.length-1] !== 'i' && el[el.length-1] !== 'o' && el[el.length-1] !== 'u');
+console.log(notEndVowelArr);
 
 // - Create a sumArray function that takes an array of number as a parameter, and calculate the sum of all its numbers
+let arr3 = [1,2,3,4,5,6];
 
+const sumArray = (arr) => {
+   let sumarr = arr.reduce((acc, curr) => {
+    acc += curr;
+    return acc;
+   }, 0)
+
+   return sumarr;
+}
+
+console.log(sumArray(arr3));
 
 // - Make a new array that contains number multiplied by 3 like [6, 18, 27 ...]
 
-
+const multArr = arr3.map(el => el*3);
+console.log(multArr);
 
 // - Create a new array that contains only even numbers
 
-
+const evenArr = arr3.filter(el => el % 2 == 0);
+console.log(evenArr);
 
 // - Create  a new array that contains only odd numbers.
 
+const oddArr = arr3.filter(el => el % 2 == 1);
+console.log(oddArr);
 
 // - Create a new array that should have true for even number and false for odd numbers.
 
+const booleanArr = arr3.map(el => {
+    if(el % 2 === 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+})
 
+console.log(booleanArr);
 
 // - Sort the above number in assending order.
 
+console.log(arr3.sort((a, b) => a - b));
 
 // - Does sort mutate the original array?
 
+'yes sort does mutate the array'
+
 //yes it mutate the original array
+
 
 // - Find the sum of the numbers in the array.
 
+const sumEleArr = arr3.reduce((acc, curr) => {
+    acc += curr;
+    return acc;
+}, 0)
+
+console.log(sumEleArr);
 
 //- Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers
 
+function averageNumbers(arr3){
+    const avgSum = arr3.reduce((acc, curr) => {
+        acc += curr;
+        return acc;
+    }, 0)
 
+    return avgSum/arr3.length;
+}
+
+console.log(averageNumbers(arr3));
 
 let strings2 = [
     "seat",
@@ -604,3 +651,14 @@ let strings2 = [
 ];
 
   // - Write a function averageWordLength that receives an array of words2 and calculate the average length of the words.
+
+  function averageWordLength(strings2){
+    let avgWordLength = strings2.reduce((acc, curr) => {
+        acc += curr.length;
+        return acc;
+    }, 0)
+
+    return avgWordLength/strings2.length;
+  }
+
+  console.log(averageWordLength(strings2));
