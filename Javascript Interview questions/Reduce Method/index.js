@@ -216,6 +216,26 @@ Create these functions which accepts a number value and returns a number value:
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
 
+function increment(num){
+    return num + 1;
+}
+
+function double(num){
+    return num * 2;
+}
+
+function decrement(num){
+    return num - 1;
+}
+
+function triple(num){
+    return num * 3;
+}
+
+function half(num){
+    return Math.round(num/2);
+}
+
 let pipeline = [
     'increment',
     'double',
