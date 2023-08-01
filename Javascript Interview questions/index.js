@@ -662,3 +662,204 @@ let strings2 = [
   }
 
   console.log(averageWordLength(strings2));
+
+
+  //------------------------------------------------------
+
+  let persons = [
+    { name: "John", grade: 8, sex: "M" },
+    { name: "Sarah", grade: 12, sex: "F" },
+    { name: "Bob", grade: 16, sex: "M" },
+    { name: "Johnny", grade: 2, sex: "M" },
+    { name: "Ethan", grade: 4, sex: "M" },
+    { name: "Paula", grade: 18, sex: "F" },
+    { name: "Donald", grade: 5, sex: "M" },
+    { name: "Jennifer", grade: 13, sex: "F" },
+    { name: "Courtney", grade: 15, sex: "F" },
+    { name: "Jane", grade: 9, sex: "F" },
+    { name: "John", grade: 17, sex: "M" },
+    { name: "Arya", grade: 14, sex: "F" },
+  ];
+  
+  // Create an array peopleName and store value of name key from persons array
+  
+  const peopleName = persons.reduce((acc, curr) => {
+    acc.push(curr.name);
+    return acc;
+  }, [])
+
+  console.log(peopleName);
+  
+  // Create an array peopleGrade and store the value of grade key from persons array
+
+  const peopleGrade = persons.reduce((acc, curr) => {
+    acc.push(curr.grade);
+    return acc;
+  }, [])
+
+  console.log(peopleGrade);
+  
+  // Create an array peopleSex and store the value of sex key from persons array
+
+  const peopleSex = persons.reduce((acc, curr) => {
+    acc.push(curr.sex);
+    return acc;
+  }, [])
+
+  console.log(peopleGrade);
+  
+  // Log the filtered named of people in peopleName that starts with 'J' or 'P'
+  
+  console.log(peopleName.filter(el => el.startsWith('J') || el.startsWith('P')));
+  
+  // Log the length of filtered named of people in peopleName that starts with 'A' and 'C'
+ 
+  console.log(peopleName.filter(el => el.startsWith('A') || el.startsWith('C')).length);
+ 
+  // Log all the filtered male ('M') in persons array
+
+  console.log(persons.filter(el => el.sex === 'M'));
+  
+  // Log all the filtered female ('F') in persons array
+  
+  console.log(persons.filter(el => el.sex === 'F'));
+  
+  // Log all the filtered female ('F') whose name starts with 'C' or 'J' in persons array
+  
+  console.log(persons.filter(el => {
+    if(el.sex === 'F'){
+        if(el.name.startsWith('C') || el.name.startsWith('J')){
+            return el;
+        }
+    }
+  }));
+  
+  // Log all the even numbers from peopleGrade array
+  
+//    console.log(peopleGrade.reduce((acc, curr) => {
+//      if(curr % 2 === 0){
+//         acc.push(curr);
+//      }
+//      return acc;
+//    }, []))
+
+   console.log(peopleGrade.filter(el => {
+      if(el % 2 === 0){
+        return el;
+      }
+   }))
+  
+  // Find the first name that starts with 'J' in persons array and log the object
+  
+  console.log(persons.find(el => el.name.startsWith('J')));
+  
+  // Find the first name that starts with 'P' in persons array and log the object
+
+  console.log(persons.find(el => el.name.startsWith('P')));
+  
+  // Find the first name that starts with 'J', grade is greater than 10 and is a female
+
+  console.log(persons.find(el => {
+    if(el.name.startsWith('J')){
+        if(el.grade > 10 && el.sex === 'F'){
+            return el;
+        }
+    }
+  }));
+  
+  // Filter all the female from persons array and store in femalePersons array
+  
+  let femalePersons = persons.filter(el => el.sex === 'F');
+  
+  // Filter all the male from persons array and store in malePersons array
+ 
+  let malePersons = persons.filter(el => el.sex === 'M');
+
+  // Find the sum of all grades and store in gradeTotal
+  
+  let gradeTotal = persons.reduce((acc, curr) => {
+    acc += curr.grade;
+    return acc;
+  }, 0)
+
+  console.log(gradeTotal);
+  
+  // Find the average grade
+  
+  console.log(gradeTotal/persons.length);
+  
+  // Find the average grade of male
+  let count = 0;
+  const avgGrdMale = persons.reduce((acc, curr) => {
+    if(curr.sex === 'M'){
+        count++;
+        acc += curr.grade;
+    }
+    return acc;
+  }, 0)
+
+  console.log(avgGrdMale/count);
+  
+  // Find the average grade of female
+
+  let count2 = 0;
+  const avgGrdFemale = persons.reduce((acc, curr) => {
+    if(curr.sex === 'F'){
+        count2++;
+        acc += curr.grade;
+    }
+    return acc;
+  }, 0)
+
+  console.log(avgGrdFemale/count2);
+
+  // Find the highest grade
+   
+  let highestGrd = persons.reduce((acc, curr) => {
+    if(curr.grade > acc){
+        acc = curr.grade;
+    }
+    return acc;
+  }, -Infinity)
+
+  console.log(highestGrd)
+ 
+  // Find the highest grade in male
+
+  let highestGrdMale = persons.reduce((acc, curr) => {
+    if(curr.sex === 'M' && curr.grade > acc){
+        acc = curr.grade;
+    }
+    return acc;
+  }, -Infinity)
+
+  console.log(highestGrdMale)
+ 
+  // Find the highest grade in female
+
+  let highestGrdFemale = persons.reduce((acc, curr) => {
+    if(curr.sex === 'F' && curr.grade > acc){
+        acc = curr.grade;
+    }
+    return acc;
+  }, -Infinity)
+
+  console.log(highestGrdFemale)
+  
+  // Find the highest grade for people whose name starts with 'J' or 'P'
+  
+
+  // Sort the peopleGrade in ascending order and log the value of peopleGrade. Notice did the elements of peopleGrade got changed?
+
+  // Sort the peopleGrade in descending order
+
+  
+  // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
+  
+
+  // Sort the array peopelName in ascending `ABCD..Za....z`
+  
+
+  
+  // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
+  
