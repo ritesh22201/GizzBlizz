@@ -92,8 +92,8 @@ user = 'Sam';
 // Non - Primitive
 
 let data = {
-    name : 'Arya',
-    age : 17
+    name: 'Arya',
+    age: 17
 }
 
 let newData = data;
@@ -107,8 +107,8 @@ data.name = 'Sam';
 // PASSED BY VALUE AND PASSED BY REFERENCE
 
 let a = 10, b = 20;
-              
-function abc(num1, num2){
+
+function abc(num1, num2) {
     num1 = num1 + num2;
     return num1;
 }
@@ -116,7 +116,7 @@ function abc(num1, num2){
 // console.log(abc(a, b));
 
 
-function xyz(data){
+function xyz(data) {
     data.name = 'Bruce Wayne';
     return data;
 }
@@ -173,7 +173,7 @@ console.log(`The character at index 5 is ${quote.charAt(5)}`);
   "Syrio Forel said There is only one thing we say to death: Not today to Arya Stark." (use concat method)
 */
 
-console.log(from.concat(' ' + 'said'+ ' ' + quote + ' ' + 'to' + ' ' + to));
+console.log(from.concat(' ' + 'said' + ' ' + quote + ' ' + 'to' + ' ' + to));
 
 /*
 6. Does from, to and quote ends with "rk". Check all three.
@@ -252,7 +252,7 @@ console.log(extendedQuote)
 17. Log the repeat of "Hello World!" 10 times.
 */
 
-for(let i = 0; i<10; i++){
+for (let i = 0; i < 10; i++) {
     console.log('Hello World!');
 }
 
@@ -358,7 +358,7 @@ console.log(largestNum);
 // - Find longest string in strings
 
 const longestStr = strings.reduce((acc, curr) => {
-    if(curr.length > acc.length){
+    if (curr.length > acc.length) {
         acc = curr;
     }
     return acc;
@@ -406,10 +406,10 @@ console.log(strings.slice(firstStrInd, secondStrInd + 1));
 // console.log(numbersArr2);
 
 let replacedArr = numbers.map(el => {
-    if(el == 12){
+    if (el == 12) {
         return 1221
     }
-    if(el == 18){
+    if (el == 18) {
         return 1881
     }
     return el;
@@ -419,7 +419,7 @@ console.log(replacedArr)
 
 // - Replace words in strings array with the length of the word
 
-let replacedStr = strings.map(el =>  el.length);
+let replacedStr = strings.map(el => el.length);
 console.log(replacedStr);
 
 // - Find the sum of the length of words using above question
@@ -433,10 +433,10 @@ console.log(lengthSum);
 
 // - Customers Array
 var customers = [
-  { firstname: "Joe", lastname: "Blogs" },
-  { firstname: "John", lastname: "Smith" },
-  { firstname: "Dave", lastname: "Jones" },
-  { firstname: "Jack", lastname: "White" }
+    { firstname: "Joe", lastname: "Blogs" },
+    { firstname: "John", lastname: "Smith" },
+    { firstname: "Dave", lastname: "Jones" },
+    { firstname: "Jack", lastname: "White" }
 ];
 // - Find all customers whose firstname starts with 'J'
 
@@ -459,13 +459,13 @@ console.log(customers.reduce((acc, curr) => {
 // - Sort the array created above alphabetically
 
 console.log(customers.sort((a, b) => {
-    if(a.firstname > b.firstname){
+    if (a.firstname > b.firstname) {
         return 1;
     }
-    else if(a.firstname < b.firstname){
+    else if (a.firstname < b.firstname) {
         return -1;
     }
-    else{
+    else {
         return 0;
     }
 }));
@@ -473,7 +473,7 @@ console.log(customers.sort((a, b) => {
 // - Create a new array that contains only user who has at least one vowel in the firstname.
 
 const filteredArr = customers.filter(el => {
-    if(el.firstname.includes('a') || el.firstname.includes('e') || el.firstname.includes('i') || el.firstname.includes('o') || el.firstname.includes('u')){
+    if (el.firstname.includes('a') || el.firstname.includes('e') || el.firstname.includes('i') || el.firstname.includes('o') || el.firstname.includes('u')) {
         return el;
     }
 })
@@ -481,9 +481,9 @@ const filteredArr = customers.filter(el => {
 console.log(filteredArr);
 
 
-let arr = [1,2,3,4,6,7,8,9];
+let arr = [1, 2, 3, 4, 6, 7, 8, 9];
 
-function double(num){
+function double(num) {
     return num * 2;
 }
 
@@ -491,17 +491,116 @@ let doubledData = arr.forEach(double); // Garbage collection of doubled data bec
 console.log(doubledData)
 
 
-function doubleMap(num){
+function doubleMap(num) {
     return num * 2;
 }
 
-let doubledMappedData = arr.map(doubleMap); 
+let doubledMappedData = arr.map(doubleMap);
 console.log(doubledMappedData)
 
 
-function add(acc, curr){
+function add(acc, curr) {
     return acc + curr;
 }
 
-let sum = arr.reduce(add, 0); 
+let sum = arr.reduce(add, 0);
 console.log(sum);
+
+
+
+let words = [
+    "mystery",
+    "brother",
+    "aviator",
+    "crocodile",
+    "pearl",
+    "orchard",
+    "crackpot",
+    "rhythm",
+];
+
+// - Write a function findLongestWord that takes an array of words and returns the longest word from the array. (Use above array "words" to test it). If there are 2 with the same length, it should return the first occurrence.
+
+function findLongestWord(words) {
+    let longestword = words.reduce((acc, curr) => {
+        if (curr.length > acc.length) {
+            acc = curr;
+        }
+        return acc;
+    }, '')
+
+    return longestword;
+}
+
+console.log(findLongestWord(words));
+
+// - Convert the above array "words" into an array of length of word instead of word.
+
+let lengthArr = words.reduce((acc, curr) => {
+    acc.push(curr.length);
+    return acc;
+}, [])
+
+console.log(lengthArr);
+
+// - Create a new array that only contains word with atleast one vowel.
+
+
+
+// - Find the index of the word "rhythm"
+
+
+
+// - Create a new array that contians words not starting with vowel.
+
+
+// - Create a new array that contianse words not ending with vowel
+
+
+
+// - Create a sumArray function that takes an array of number as a parameter, and calculate the sum of all its numbers
+
+
+// - Make a new array that contains number multiplied by 3 like [6, 18, 27 ...]
+
+
+
+// - Create a new array that contains only even numbers
+
+
+
+// - Create  a new array that contains only odd numbers.
+
+
+// - Create a new array that should have true for even number and false for odd numbers.
+
+
+
+// - Sort the above number in assending order.
+
+
+// - Does sort mutate the original array?
+
+//yes it mutate the original array
+
+// - Find the sum of the numbers in the array.
+
+
+//- Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers
+
+
+
+let strings2 = [
+    "seat",
+    "correspond",
+    "linen",
+    "motif",
+    "hole",
+    "smell",
+    "smart",
+    "chaos",
+    "fuel",
+    "palace",
+];
+
+  // - Write a function averageWordLength that receives an array of words2 and calculate the average length of the words.
