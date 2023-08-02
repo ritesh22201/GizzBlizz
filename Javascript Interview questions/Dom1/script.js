@@ -28,57 +28,62 @@ const allLi = document.querySelectorAll('.topics > li');
 // 4. Select the first input using the `type` selector and store them in variable named `emailInput`
 
 const emailInput = document.querySelector('input[type="email"]');
-console.log(emailInput)
 
 // 5. Select the ul element using class selector and store in `topics`
 
-
+const topics = document.getElementsByClassName('topics');
 
 // 6. Select the first label element and store in `label`
 
-
+let label = document.querySelector('label[for="email"]');
 
 // 7. Select the input of type `checkbox` with the `id` selector and store in `inputCheckbox`
 
-
+const inputCheckbox = document.getElementById('remember');
 
 // 8. Select the input of type password using Attribute selectors. (eg: input[type="text"]) and store in `password`
 
-
+const password = document.querySelector('input[type="password"]');
 
 // 9. Select the input using the placeholder attribute selector with value `password` and store in `attrPassword`
 
-
+const attrPassword = document.querySelector('input[placeholder="password"]');
 
 // 10. Select all the `li` element and store in `allTopics`
 
-
+const allTopics = document.querySelectorAll('li');
 
 // 11. Select all the input element of any type and store in `allInput`
 
-
+const allInput = document.querySelectorAll('input');
 
 // 12. Use forEach to console the `innerText` property of all the li element in `allTopics` variable.
 
-
+allTopics.forEach(el => {
+    console.log(el.innerText);
+})
 
 // 13. Select all the elements with class `list` and store in variable `listOfSelectedTopics`
 
+const listOfSelectedTopics = document.querySelectorAll('.list');
 
 // 14. Select the first li element inside the `ul` element using `>` (direct child) and store in `firstLi`
 
-
+const firstLi = document.querySelector('.topics');
 
 // 15. Select all the img element and log the number of element saying `The total number of img element is ---`
 
+const imgEle = document.querySelectorAll('img');
+console.log(`The total number of img element is ${imgEle.length}`);
 
 // 16. Select all the `p` element and store in `allPElement`
 
-
+const allPElement = document.querySelectorAll('p');
 
 // 17. Select all the buttons and log the count of buttons.
 
-
+const buttons = document.querySelectorAll('button');
+console.log(buttons.length);
 
 // 18. Select all the `label` element and log the count.
 
