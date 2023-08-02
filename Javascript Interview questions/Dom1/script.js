@@ -19,15 +19,16 @@ li.textContent = 'all about document'
 
 //    - Select the input element with name `email`
 
-
+const email = document.getElementsByName('email')[0];
 
 // 3. Log the number (using console.log) of children of all the `li` element inside the ul with class `topics`
 
-
+const allLi = document.querySelectorAll('.topics > li');
 
 // 4. Select the first input using the `type` selector and store them in variable named `emailInput`
 
-
+const emailInput = document.querySelector('input[type="email"]');
+console.log(emailInput)
 
 // 5. Select the ul element using class selector and store in `topics`
 
