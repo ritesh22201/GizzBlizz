@@ -31,7 +31,7 @@ const emailInput = document.querySelector('input[type="email"]');
 
 // 5. Select the ul element using class selector and store in `topics`
 
-const topics = document.getElementsByClassName('topics');
+const topics = document.getElementsByClassName('topics')[0];
 
 // 6. Select the first label element and store in `label`
 
@@ -87,39 +87,41 @@ console.log(buttons.length);
 
 // 18. Select all the `label` element and log the count.
 
-
+const labels = document.querySelectorAll('label');
+console.log(labels.length);
 
 // 19. Select all the elements with `id` of `test`
 
-
+const eleWithIdTest = document.querySelectorAll('#test');
 
 // 20. Select the first element with id `test` using `getElementById`
 
-
+const firstEle = document.querySelector('#test');
 
 // 21. Select the parent element of the element stored in `topics` variable (#5) and log the element.
 
-
+console.log(topics.parentElement);
 
 // 22. Select the next element sibling of the element stored in `topics` variable (#5) and log the element.
 
-
+console.log(topics.nextElementSibling)
 
 // 23. Select the previous element sibling of the element stored in `topics` variable (#5) and change the `innerText` property to `Learning About Walking the DOM`.
 
-
+console.log(topics.previousElementSibling)
 
 // 24. Select the first element child of the element stored in `topics` variable (#5) and change the `innerText` property of the element to `This is the first child element`.
 
-
+console.log(topics.firstElementChild)
 
 // 25. Select the last element child of the element stored in `topics` variable (#5) and log the `typeof` the element.
 
-
+console.log(topics.lastElementChild)
 
 // 26. Select the element with type `fieldset` and store in a variable named `fieldsetElm`.
 
-
+const fieldsetElm = document.querySelector('fieldset');
 
 // 27. Select the parent element of the element stored in `fieldsetElm` variable (#5) and log the `typeof` the element.
 
+console.log(fieldsetElm.parentElement);
