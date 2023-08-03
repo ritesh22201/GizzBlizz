@@ -58,26 +58,35 @@ hrEle.style.border = '2px solid purple'
 
 // Hide the box number 17 (last box).
 
-
+const lastBox = document.querySelector('.seventeen');
+lastBox.remove();
 
 // Change the border of all the hr element from solid to dashed type
 
-
+allHrs.forEach(el => {
+    el.style.border = '2px dashed'
+})
 
 // Create a pragraph element and store it in variable named 'para' using `createElement`
 
+let para = document.createElement('p');
 
 // Change the inner text of para to "querySelector returns an element you can maupulate but querySelectorAll returns the collection of elements in array kind of structure."
 
-
+para.textContent = "querySelector returns an element you can maupulate but querySelectorAll returns the collection of elements in array kind of structure."
 
 // Remove all the elements from box 1
 
+let box1 = document.querySelector('.box.one');
+
+while(box1.firstChild){
+  box1.removeChild(box1.firstChild);
+}
 
 
 // Replace all the elements inside box 1 with the para (you created above)
 
-
+box1.textContent = para.textContent;
 
 /* Walking the DOM
 Do the following after selecting box 16 and storing in variable named box16
@@ -97,11 +106,22 @@ Do the following after selecting box 16 and storing in variable named box16
   - Focus on the difference between element and node
 */
 
-
+let box16 = document.querySelector('.sixteen');
+console.log(box16.parentNode);
+console.log(box16.childNodes);
+console.log(box16.previousSibling);
+console.log(box16.nextSibling);
+console.log(box16.firstChild);
+console.log(box16.lastChild);
+console.log(box16.previousElementSibling);
+console.log(box16.nextElementSibling);
+console.log(box16.firstElementChild);
+console.log(box16.lastElementChild);
 
 // Select box 2 and append a new paragraph element with content "Append inserts as last child" just after hr element.
 
-
+let box2 = document.querySelector('.two');
+box2.textContent = 'Append inserts as last child" just after hr element.'
 
 // Select box 3 and prepend a new paragraph element with content "Prepend inserts as first child" just before hr element.
 
