@@ -26,6 +26,7 @@ function createBoxes() {
 
 let smallbox = createBoxes();
 
+
 container.addEventListener('mousemove', () => {
     for (let i = 0; i < smallbox.length; i++) {
         smallbox[i].style.backgroundColor = generateColor();
