@@ -1,0 +1,17 @@
+#box1 {
+    width: 400px;
+    background-color: teal;
+    height: 300px;
+}
+
+#box2 {
+    width: 300px;
+    background-color: cyan;
+    height: 200px;
+}
+
+#box3 {
+    width: 200px;
+    background-color: coral;
+    height: 150px;
+}
