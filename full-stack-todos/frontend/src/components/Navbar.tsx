@@ -55,7 +55,7 @@ const Navbar = () => {
                         <Text mb={'10px'} color={'white'} size={'md'}>{token?.name}</Text>
                         {token && <Text className='logout' cursor={'pointer'} size={'md'} onClick={handleLogout} color={'white'}>Logout</Text>}
                     </Box>}
-                    <Input mt={'20px'} value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
+                    <Input  mt={'20px'} value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
                 </Flex>
             </Flex>
             <hr style={{ margin: '20px 0' }} />
