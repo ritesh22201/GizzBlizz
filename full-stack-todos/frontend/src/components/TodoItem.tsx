@@ -16,7 +16,7 @@ const TodoItem = () => {
     let monthArr = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     useEffect(() => {
-        if(token && token.token){
+        if (token && token.token) {
             dispatch(getTodos(token.token));
         }
     }, [token?.token])
@@ -36,13 +36,13 @@ const TodoItem = () => {
                             <Text fontWeight={'bold'}>{el.title}</Text>
                         }
                     </Flex>
-                    <Text>{el.created_at.split('T')[0]}</Text>
+                    <Text>{el.created_at?.split('T')[0]}</Text>
                     <Flex gap={'10px'}>
                         <Button onClick={() => setEditInput(true)} _hover={{ backgroundColor: '#237afe' }} borderRadius={'50%'} bg={'#237afe'} color={'gray.200'}>{<FaEdit />}</Button>
                         <Button color={'gray.200'} fontSize={'25px'} w={'40px'} _hover={{ backgroundColor: '#e65b65' }} bg={'#e65b65'} borderRadius={'50%'}>{<FaTrash />}</Button>
                     </Flex>
                 </Flex>
-            })}
+            }).reverse()}
         </Box>
     )
 }

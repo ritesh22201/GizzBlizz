@@ -1,4 +1,4 @@
-import { GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS } from "./actionTypes";
+import { GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS } from "./actionTypes";
 
 const initialState = {
     data : [],
@@ -35,6 +35,15 @@ export const reducer = (state = initialState, {type, payload}:Action) => {
                 isLoading : false,
                 iError : true,
                 errorMsg : payload
+            }
+        }
+
+        case POST_TODOS_SUCCESS : {
+            return {
+                ...state,
+                isLoading : false,
+                isError : false,
+                data : [...state.data, payload]
             }
         }
 

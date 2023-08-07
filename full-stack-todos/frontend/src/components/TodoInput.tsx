@@ -11,6 +11,7 @@ const TodoInput = () => {
     const toast = useToast();
     const value: string | null = localStorage.getItem('token');
     const token: { [key: string]: any } | null = value ? JSON.parse(value) : null;
+    
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         
@@ -34,7 +35,7 @@ const TodoInput = () => {
         }
 
         await dispatch(postTodos(newTodo));
-        dispatch(getTodos(token?.token));
+        await dispatch(getTodos(token?.token));
         setTodo('');
     }
 

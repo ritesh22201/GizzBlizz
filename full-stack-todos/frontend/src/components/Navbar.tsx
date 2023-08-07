@@ -13,6 +13,7 @@ const Navbar = () => {
     const value: string | null = localStorage.getItem('token');
     const token: { [key: string]: any } | null = value ? JSON.parse(value) : null;
     const [dateInput, setDateInput] = useState<string>('');
+    const [searchInp, setSearchInp] = useState<string>('');
     const { isOpen } = useDisclosure();
 
     useEffect(() => {
@@ -28,15 +29,26 @@ const Navbar = () => {
     const handleLogout = () => {
         dispatch(logout(token?.token))
         localStorage.removeItem('token');
+        window.location.reload();
+    }
+
+    const handleSearch = (e:React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+        dispatch(getTodos(token?.token, searchInp));
     }
 
     return (
         <Box p={'10px 30px'} margin={'auto'}>
-            <Flex justifyContent={'space-between'} alignItems={'center'}>
+            <Flex justifyContent={'space-between'} gap={'10px'} alignItems={'center'}>
                 <Box>
                     <Heading color={'white'} as={'h1'} size={'lg'} >Today</Heading>
                     <Text color={'gray.300'}>{date}</Text>
                 </Box>
+                <form style={{width : '43%'}} onSubmit={handleSearch}>
+                    <Input focusBorderColor='none' color={'gray.300'} border={'none'} borderBottom={'1px inset'} type='text' onChange={(e) => setSearchInp(e.target.value)} placeholder='Search a todo...'/>
+                    <button type='submit'></button>
+                </form>
                 <Flex position={'relative'} alignItems={'center'}>
                     {token?.token && <FaUserAlt className='userIcon' color='white' />}
                     {token?.token && <Box className='userBox' borderRadius={'5px'} position={'absolute'} right={'87px'} top={'39px'} bg={'#041955'} p={'20px'}>
