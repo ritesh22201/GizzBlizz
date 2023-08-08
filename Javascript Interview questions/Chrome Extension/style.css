@@ -2,7 +2,9 @@
 
 body{
     height: 100vh;
-    background: linear-gradient(#6441A5, #2a0845);
+    background-image: url(./extension.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 svg {
@@ -32,8 +34,8 @@ svg text {
     width: 60%;
     margin: 70px auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
     text-align: center;
     font-family: sans-serif;
     color: rgb(223, 221, 221);
@@ -46,6 +48,7 @@ svg text {
 .container img{
     width: 50px;
     border-radius: 50%;
+    color: white;
 }
 
 
