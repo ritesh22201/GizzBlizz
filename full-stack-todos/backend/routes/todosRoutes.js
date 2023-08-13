@@ -9,8 +9,8 @@ todosRoute.get('/', auth, async (req, res) => {
     let page = req.query.page;
     const userId = req.body.userId;
     const limit = req.query.limit;
-    try {
 
+    try {
         let pageNum = +page || 1;
         let limitPage = +limit || 5;
         const skip = (pageNum - 1)*limit;

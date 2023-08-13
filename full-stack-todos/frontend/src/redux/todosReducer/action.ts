@@ -8,7 +8,10 @@ interface NewTodo {
     status: boolean;
 }
 
-export const getTodos = (token: string, q='') => (dispatch: any) => {
+const value: string | null = localStorage.getItem('token');
+const token: { [key: string]: any } | null = value ? JSON.parse(value) : null;
+
+export const getTodos = (token: string, q='', dateInp='') => (dispatch: any) => {
 
     const config: AxiosRequestConfig = {
         headers: {
@@ -17,7 +20,7 @@ export const getTodos = (token: string, q='') => (dispatch: any) => {
     };
 
     dispatch({ type: GET_TODOS });
-    return axios.get(`https://todoconfig.onrender.com/todo/?q=${q}`, config)
+    return axios.get(`https://todoconfig.onrender.com/todo/?q=${q}`, config )
         .then(res => {
             dispatch({ type: GET_TODOS_SUCCESS, payload: res.data })
             // console.log(res)
@@ -28,9 +31,6 @@ export const getTodos = (token: string, q='') => (dispatch: any) => {
 }
 
 export const postTodos = (newTodo: NewTodo) => (dispatch: any) => {
-
-    const value: string | null = localStorage.getItem('token');
-    const token: { [key: string]: any } | null = value ? JSON.parse(value) : null;
 
     const config: AxiosRequestConfig = {
         headers: {
@@ -48,4 +48,12 @@ export const postTodos = (newTodo: NewTodo) => (dispatch: any) => {
             console.log(err)
             dispatch({ type: GET_TODOS_FAILURE, payload: err.message });
         })
+}
+
+export const updateStatus = (id:number) => (dispatch:any) => {
+    
+}
+
+export const deleteTodo = (id:number) => (dispatch:any) => {
+    
 }

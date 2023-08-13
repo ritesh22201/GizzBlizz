@@ -32,10 +32,16 @@ const Navbar = () => {
         window.location.reload();
     }
 
-    const handleSearch = (e:React.FormEvent<HTMLFormElement>) => {
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
+
         dispatch(getTodos(token?.token, searchInp));
+        setSearchInp('');
+    }
+
+    const handleDateSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        dispatch(getTodos(token?.token, '', dateInput));
     }
 
     return (
@@ -45,9 +51,12 @@ const Navbar = () => {
                     <Heading color={'white'} as={'h1'} size={'lg'} >Today</Heading>
                     <Text color={'gray.300'}>{date}</Text>
                 </Box>
-                <form style={{width : '43%'}} onSubmit={handleSearch}>
-                    <Input focusBorderColor='none' color={'gray.300'} border={'none'} borderBottom={'1px inset'} type='text' onChange={(e) => setSearchInp(e.target.value)} placeholder='Search a todo...'/>
+                <form style={{ width: '43%' }} onSubmit={handleSearch}>
+                    {token?.token &&
+                        <Input focusBorderColor='none' color={'gray.300'} border={'none'} borderBottom={'1px inset'} type='text' value={searchInp} onChange={(e) => setSearchInp(e.target.value)} placeholder='Search a todo...' />
+                    }
                     <button type='submit'></button>
+
                 </form>
                 <Flex position={'relative'} alignItems={'center'}>
                     {token?.token && <FaUserAlt className='userIcon' color='white' />}
@@ -55,7 +64,12 @@ const Navbar = () => {
                         <Text mb={'10px'} color={'white'} size={'md'}>{token?.name}</Text>
                         {token && <Text className='logout' cursor={'pointer'} size={'md'} onClick={handleLogout} color={'white'}>Logout</Text>}
                     </Box>}
-                    <Input  mt={'20px'} value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
+                    <form onSubmit={handleDateSearch}>
+                        {token?.token &&
+                            <Input mt={'20px'} value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
+                        }
+                        <button type='submit'></button>
+                    </form>
                 </Flex>
             </Flex>
             <hr style={{ margin: '20px 0' }} />
