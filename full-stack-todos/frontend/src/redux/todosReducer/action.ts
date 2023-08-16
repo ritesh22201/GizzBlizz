@@ -1,5 +1,5 @@
 import axios, { AxiosHeaders, AxiosRequestConfig } from "axios";
-import { GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS } from "./actionTypes"
+import { DELETE_TODOS_SUCCESS, GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS } from "./actionTypes"
 
 interface NewTodo {
     title: string;
@@ -42,7 +42,7 @@ export const postTodos = (newTodo: NewTodo) => (dispatch: any) => {
     return axios.post('https://todoconfig.onrender.com/todo/addTodo', newTodo, config)
         .then(res => {
             dispatch({ type: POST_TODOS_SUCCESS, payload: res.data })
-            console.log(res)
+            // console.log(res)
         })
         .catch(err => {
             console.log(err)
@@ -54,6 +54,22 @@ export const updateStatus = (id:number) => (dispatch:any) => {
     
 }
 
-export const deleteTodo = (id:number) => (dispatch:any) => {
+export const deleteTodo = (id:string) => (dispatch:any) => {
+
+    const config: AxiosRequestConfig = {
+        headers: {
+            Authorization: `Bearer ${token?.token}`,
+        },
+    };
     
+    dispatch({type : GET_TODOS});
+    return axios.delete(`https://todoconfig.onrender.com/todo/delete/${id}`,config)
+    .then(res => {
+        console.log(res)
+        dispatch({type : DELETE_TODOS_SUCCESS, payload : res.data.msg});
+    })
+    .catch(err => {
+        console.log(err)
+        dispatch({type : GET_TODOS_FAILURE, payload : err.message});
+    })
 }
