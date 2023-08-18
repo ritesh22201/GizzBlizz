@@ -59,14 +59,14 @@ const Navbar = () => {
 
                 </form>
                 <Flex position={'relative'} alignItems={'center'}>
-                    {token?.token && <FaUserAlt className='userIcon' color='white' />}
+                    {token?.token && <FaUserAlt cursor={'pointer'} className='userIcon' color='white' />}
                     {token?.token && <Box className='userBox' borderRadius={'5px'} position={'absolute'} right={'87px'} top={'39px'} bg={'#041955'} p={'20px'}>
                         <Text mb={'10px'} color={'white'} size={'md'}>{token?.name}</Text>
                         {token && <Text className='logout' cursor={'pointer'} size={'md'} onClick={handleLogout} color={'white'}>Logout</Text>}
                     </Box>}
                     <form onSubmit={handleDateSearch}>
                         {token?.token &&
-                            <Input mt={'20px'} value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
+                            <Input cursor={'pointer'} mt={'20px'} value={dateInput} onChange={(e) => setDateInput(e.target.value)} focusBorderColor='none' color={'gray.300'} type='date' id='dateInput' />
                         }
                         <button type='submit'></button>
                     </form>

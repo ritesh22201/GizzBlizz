@@ -1,5 +1,5 @@
 import axios, { AxiosHeaders, AxiosRequestConfig } from "axios";
-import { DELETE_TODOS_SUCCESS, GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS } from "./actionTypes"
+import { DELETE_TODOS_SUCCESS, GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS, UPDATE_TODOS_SUCCESS } from "./actionTypes"
 
 interface NewTodo {
     title: string;
@@ -18,6 +18,7 @@ export const getTodos = (token: string, q='', dateInp='') => (dispatch: any) => 
             Authorization: `Bearer ${token}`,
         },
     };
+
 
     dispatch({ type: GET_TODOS });
     return axios.get(`https://todoconfig.onrender.com/todo/?q=${q}`, config )
@@ -45,7 +46,7 @@ export const postTodos = (newTodo: NewTodo) => (dispatch: any) => {
             // console.log(res)
         })
         .catch(err => {
-            console.log(err)
+            // console.log(err)
             dispatch({ type: GET_TODOS_FAILURE, payload: err.message });
         })
 }
@@ -65,8 +66,39 @@ export const deleteTodo = (id:string) => (dispatch:any) => {
     dispatch({type : GET_TODOS});
     return axios.delete(`https://todoconfig.onrender.com/todo/delete/${id}`,config)
     .then(res => {
-        console.log(res)
+        // console.log(res)
         dispatch({type : DELETE_TODOS_SUCCESS, payload : res.data.msg});
+    })
+    .catch(err => {
+        // console.log(err)
+        dispatch({type : GET_TODOS_FAILURE, payload : err.message});
+    })
+}
+
+export const editTodo = (id:string, title:string, newStatus : boolean) => (dispatch:any) => {
+
+    const config: AxiosRequestConfig = {
+        headers: {
+            Authorization: `Bearer ${token?.token}`,
+        },
+    };
+
+    let data = title || newStatus;
+    let finalData;
+
+    if(typeof data === 'string'){
+        finalData = {title}
+    }
+    else{
+        finalData = {status : newStatus}
+    }
+
+
+    dispatch({type : GET_TODOS});
+    return axios.patch(`https://todoconfig.onrender.com/todo/update/${id}`,finalData,config)
+    .then(res => {
+        console.log(res)
+        dispatch({type : UPDATE_TODOS_SUCCESS, payload : res.data.msg});
     })
     .catch(err => {
         console.log(err)

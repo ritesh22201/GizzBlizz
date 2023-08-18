@@ -1,4 +1,4 @@
-import { DELETE_TODOS_SUCCESS, GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS } from "./actionTypes";
+import { DELETE_TODOS_SUCCESS, GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS, UPDATE_TODOS_SUCCESS } from "./actionTypes";
 
 const initialState = {
     data : [],
@@ -6,6 +6,7 @@ const initialState = {
     isError : false,
     errorMsg : '',
     deletedMsg : '',
+    editMsg : '',
     isDeleted : false
 }
 
@@ -56,6 +57,15 @@ export const reducer = (state = initialState, {type, payload}:Action) => {
                 isError : false,
                 deletedMsg : payload,
                 isDeleted : true
+            }
+        }
+
+        case UPDATE_TODOS_SUCCESS : {
+            return {
+                ...state,
+                isLoading : false,
+                isError : false,
+                editMsg : payload
             }
         }
 
