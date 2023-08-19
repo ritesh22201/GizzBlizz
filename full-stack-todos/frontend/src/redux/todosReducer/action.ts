@@ -11,7 +11,7 @@ interface NewTodo {
 const value: string | null = localStorage.getItem('token');
 const token: { [key: string]: any } | null = value ? JSON.parse(value) : null;
 
-export const getTodos = (token: string, q='', dateInp='') => (dispatch: any) => {
+export const getTodos = (token: string, q='', dateInp='', page = 1, limit = 4) => (dispatch: any) => {
 
     const config: AxiosRequestConfig = {
         headers: {
@@ -21,9 +21,9 @@ export const getTodos = (token: string, q='', dateInp='') => (dispatch: any) => 
 
 
     dispatch({ type: GET_TODOS });
-    return axios.get(`https://todoconfig.onrender.com/todo/?q=${q}`, config )
+    return axios.get(`https://todoconfig.onrender.com/todo/?q=${q}&page=${page}&limit=${limit}`, config )
         .then(res => {
-            dispatch({ type: GET_TODOS_SUCCESS, payload: res.data })
+            dispatch({ type: GET_TODOS_SUCCESS, payload: {todos : res.data.todos, totalTodos : res.data.totalTodos} })
             // console.log(res)
         })
         .catch(err => {
@@ -43,7 +43,7 @@ export const postTodos = (newTodo: NewTodo) => (dispatch: any) => {
     return axios.post('https://todoconfig.onrender.com/todo/addTodo', newTodo, config)
         .then(res => {
             dispatch({ type: POST_TODOS_SUCCESS, payload: res.data })
-            // console.log(res)
+            console.log(res)
         })
         .catch(err => {
             // console.log(err)

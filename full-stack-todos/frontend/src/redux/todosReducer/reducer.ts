@@ -1,3 +1,4 @@
+import { Todo } from "../../components/TodoItem";
 import { DELETE_TODOS_SUCCESS, GET_TODOS, GET_TODOS_FAILURE, GET_TODOS_SUCCESS, POST_TODOS_SUCCESS, UPDATE_TODOS_SUCCESS } from "./actionTypes";
 
 const initialState = {
@@ -7,13 +8,20 @@ const initialState = {
     errorMsg : '',
     deletedMsg : '',
     editMsg : '',
-    isDeleted : false
+    isDeleted : false,
+    totalTodos : 0
+}
+
+type Payload = {
+    todos : Todo[];
+    totalTodos : number;
 }
 
 type Action = {
     type : string;
-    payload : string;
+    payload : string | Payload;
 }
+
 
 export const reducer = (state = initialState, {type, payload}:Action) => {
     switch(type){
@@ -25,10 +33,12 @@ export const reducer = (state = initialState, {type, payload}:Action) => {
         }
 
         case GET_TODOS_SUCCESS : {
+            const {todos, totalTodos} = payload as Payload;
             return {
                 ...state,
                 isLoading : false,
-                data : payload
+                data : todos,
+                totalTodos : totalTodos
             }
         }
 
