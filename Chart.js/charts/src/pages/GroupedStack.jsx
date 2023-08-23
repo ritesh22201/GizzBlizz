@@ -45,26 +45,28 @@ const GroupedStack = () => {
             {
                 label: 'Dataset 1',
                 data : labels.map(() => faker.datatype.number({min : -1000, max : 1000})),
-                backgroundColor : randomColorGenerator(),
+                backgroundColor : randomColorGenerator(255),
                 stack : 'Stack 0'
             },
             {
                 label: 'Dataset 2',
                 data : labels.map(() => faker.datatype.number({min : -1000, max : 1000})),
-                backgroundColor : randomColorGenerator(),
+                backgroundColor : randomColorGenerator(255),
                 stack : 'Stack 0'
             },
             {
                 label: 'Dataset 3',
                 data : labels.map(() => faker.datatype.number({min : -1000, max : 1000})),
-                backgroundColor : randomColorGenerator(),
+                backgroundColor : randomColorGenerator(255),
                 stack : 'Stack 1'
             },
         ]
     }
 
     return (
-        <div>GroupedStack</div>
+        <div style={{width : '70%', margin : 'auto'}}>
+            <Bar options={options} data={data}/>
+        </div>
     )
 }
 
