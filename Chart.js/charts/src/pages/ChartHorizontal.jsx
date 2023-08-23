@@ -10,6 +10,7 @@ import {
     Legend,
 } from "chart.js";
 import { faker } from '@faker-js/faker';
+import { randomColorGenerator } from '../components/constant';
 
 const ChartHorizontal = () => {
     ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -45,14 +46,6 @@ const ChartHorizontal = () => {
             }
         ]
 
-    }
-
-    function randomNumber(num){
-        return Math.floor(Math.random()*num);
-    }
-
-    function randomColorGenerator (num) {
-        return `rgba(${randomNumber(num)}, ${randomNumber(num)}, ${randomNumber(num)}, 0.5)`
     }
 
     return (
