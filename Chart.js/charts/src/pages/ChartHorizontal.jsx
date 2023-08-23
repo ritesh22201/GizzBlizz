@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -30,21 +29,30 @@ const ChartHorizontal = () => {
         }
     }
 
+
     const data = {
         labels,
         datasets: [
             {
                 label: 'Dataset 1',
                 data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-                backgroundColor: 'rgba(155, 89, 211, 0.5)'
+                backgroundColor: randomColorGenerator(255)
             },
             {
                 label: 'Dataset 2',
                 data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-                backgroundColor: 'rgba(122, 234, 110, 0.5)'
+                backgroundColor: randomColorGenerator(255)
             }
         ]
 
+    }
+
+    function randomNumber(num){
+        return Math.floor(Math.random()*num);
+    }
+
+    function randomColorGenerator (num) {
+        return `rgba(${randomNumber(num)}, ${randomNumber(num)}, ${randomNumber(num)}, 0.5)`
     }
 
     return (

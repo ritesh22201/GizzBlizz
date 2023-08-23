@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import ChartHorizontal from './components/ChartHorizontal';
+import ChartHorizontal from './pages/ChartHorizontal';
+import AllRoutes from './routes/AllRoutes';
 
 function App() {
   return (
     <div className="App">
-      <ChartHorizontal/>
+      <AllRoutes/>
     </div>
   );
 }
