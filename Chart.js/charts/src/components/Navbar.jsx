@@ -7,6 +7,7 @@ const Navbar = () => {
         <Link to={'/'}>Bar Graph</Link>
         <Link to={'/stackBar'}>Stack Bar</Link>
         <Link to={'/groupStack'}>Group Stack</Link>
+        <Link to={'/line'}>Line Graph</Link>
     </div>
   )
 }
