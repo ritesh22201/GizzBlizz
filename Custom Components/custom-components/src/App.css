@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+.general{
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  width: 90px;
+}
+
+.button{
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
+.button:hover{
+  transition-duration: 0.5s;
+  background-color: rgb(197, 196, 196);
+  opacity: 0.5;
+}
+
+.button:active{
+  scale: 0.99;
+}
+
+.defaultColor{
+  background-color: rgb(248, 247, 247);
+}
+
+.green{
+  background-color: rgb(13, 173, 13);
+  color: white;
+}
+
+.blue{
+  background-color: rgb(53, 97, 229);
+  color: white;
+}
+
+.black{
+  background-color: black;
+  color: white;
+}
+
+.red{
+  background-color: rgb(246, 35, 35);
+  color: white;
+}
+
+.teal{
+  background-color: teal;
+  color: white;
+}
+
+.orange{
+  background-color: orange;
+  color: white;
+}
