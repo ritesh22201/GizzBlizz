@@ -9,6 +9,7 @@ const Navbar = () => {
         <Link style={{color : 'white', fontWeight : 'bold', textDecoration : 'none'}} to={'/groupStack'}>Group Stack</Link>
         <Link style={{color : 'white', fontWeight : 'bold', textDecoration : 'none'}} to={'/line'}>Line Graph</Link>
         <Link style={{color : 'white', fontWeight : 'bold', textDecoration : 'none'}} to={'/area'}>Area Graph</Link>
+        <Link style={{color : 'white', fontWeight : 'bold', textDecoration : 'none'}} to={'/pie'}>Pie Graph</Link>
     </div>
   )
 }

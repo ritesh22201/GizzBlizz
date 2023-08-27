@@ -5,6 +5,7 @@ import StackedBarGraph from '../pages/StackedBarGraph';
 import GroupedStack from '../pages/GroupedStack';
 import LineGraph from '../pages/LineGraph';
 import AreaCharts from '../pages/AreaCharts';
+import PieChart from '../pages/PieChart';
 
 const AllRoutes = () => {
     return (
@@ -14,6 +15,7 @@ const AllRoutes = () => {
             <Route path='/groupStack' element={<GroupedStack />} />
             <Route path='/line' element={<LineGraph />} />
             <Route path='/area' element={<AreaCharts />} />
+            <Route path='/pie' element={<PieChart />} />
         </Routes>
     )
 }
