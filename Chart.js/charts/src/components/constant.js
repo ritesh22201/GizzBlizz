@@ -1,5 +1,5 @@
 
-export function randomNumber(num){
+function randomNumber(num){
     return Math.floor(Math.random()*num);
 }
 
