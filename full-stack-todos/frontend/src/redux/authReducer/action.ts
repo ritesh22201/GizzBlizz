@@ -20,7 +20,7 @@ export const login = (formData: LoginType) => (dispatch: any) => {
     dispatch({ type: AUTH_REQ });
     axios.post('https://todoconfig.onrender.com/users/login', formData)
         .then(res => {
-            // console.log(res);
+            console.log(res);
             dispatch({ type: AUTH_REQ_SUCCESS, payload: res.data });
         })
         .catch(err => {

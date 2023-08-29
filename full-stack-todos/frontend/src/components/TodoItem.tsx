@@ -107,7 +107,7 @@ const TodoItem = () => {
     const handleTodaysTasks = () => {
         const date = new Date();
         const formattedDate = date.toISOString();
-        console.log(formattedDate)
+        // console.log(formattedDate)
         let updatedData = [...data];
         updatedData = updatedData.filter(el => el.created_at.toString().split('T')[0] === formattedDate.toString().split('T')[0]);
 
@@ -123,8 +123,8 @@ const TodoItem = () => {
                 <Button onClick={handlePendingTasks} color={'gray.600'} size={'md'}>PENDING - {data.filter((el:any) => el.status === false).length}</Button>
                 <Button onClick={handleCompletedTasks} color={'gray.600'} size={'md'}>COMPLETED - {data.filter((el:any) => el.status === true).length}</Button>
             </Flex>
-            {originalData.length ? originalData.map((el: Todo, i: number) => {
-                return <Flex bg={'#041955'} color={'gray.300'} p={'25px 10px'} borderRadius={'7px'} m={'30px 0'} boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px' key={i + 1} justifyContent={'space-between'} alignItems={'center'}>
+            {originalData.length ? originalData?.map((el: Todo, i: number) => {
+                return <Flex opacity={el.status ? '0.7' : ''} bg={el.status ? '#7286b5' : '#041955'} color={'gray.300'} p={'25px 10px'} borderRadius={'7px'} m={'30px 0'} boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px' key={i + 1} justifyContent={'space-between'} alignItems={'center'}>
                     <Flex alignItems={'center'} gap={'20px'}>
                         <Checkbox isChecked={el.status} onChange={() => handleStatus(el._id)} borderColor={'#eb06ff'} />
                         {editInput[i] ?
@@ -149,11 +149,11 @@ const TodoItem = () => {
                             setEditInput(updatedInput);
                             setTitle(el.title);
 
-                        }} _hover={{ backgroundColor: '#237afe' }} borderRadius={'50%'} bg={'#237afe'} color={'gray.200'}>{<FaEdit />}</Button>
+                        }} isDisabled={el.status === true} _hover={{ backgroundColor: '#237afe' }} borderRadius={'50%'} bg={'#237afe'} color={'gray.200'}>{<FaEdit />}</Button>
                         <Button onClick={() => handleDelete(el._id)} color={'gray.200'} fontSize={'25px'} w={'40px'} _hover={{ backgroundColor: '#e65b65' }} bg={'#e65b65'} borderRadius={'50%'}>{<FaTrash />}</Button>
                     </Flex>
                 </Flex>
-            }).reverse()
+            })
                 :
                 <Box p={'30px 0'} display={'grid'} placeItems={'center'}>
                     <Heading size={'lg'} color={'gray.300'}>No todo found!!</Heading>
