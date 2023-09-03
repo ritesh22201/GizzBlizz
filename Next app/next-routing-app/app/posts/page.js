@@ -25,6 +25,8 @@ const page = () => {
             {post?.map(el => {
                 return <div key={el.id} className='border border-gray-400 p-3'>
                     <h3>Title : {el.title}</h3>
+                    <br/>
+                    <h3>Description : {el.body}</h3>
                 </div>
             })}
         </div>
