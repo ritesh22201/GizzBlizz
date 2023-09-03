@@ -1,12 +1,4 @@
-function createUser(name, score = 0) {
-    let obj = Object.create({});
-    obj.name = name;
-    obj.score = score;
-
-    return obj;
-}
-
-createUser.prototype.userMethods = {
+const userMethods = {
     increaseScore : function (value) {
         this.score += value
     },
@@ -17,8 +9,18 @@ createUser.prototype.userMethods = {
     
     changeName : function (val) {
         this.name = val;
+        return this.name;
     }
 }
 
+function createUser(name, score = 0) {
+    let obj = Object.create(userMethods);
+    obj.name = name;
+    obj.score = score;
+
+    return obj;
+}
+
+
 const user1 = createUser('Arya', 10);
-console.log(user1);
+console.log(user1.changeName('John'));
