@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Cards = () => {
+const Cards = ({image, id}) => {
+    let imagePath = image ? image : '';
   return (
-    <div>Cards</div>
+    <div>
+        <img src={imagePath} alt="images" />
+    </div>
   )
 }
 
