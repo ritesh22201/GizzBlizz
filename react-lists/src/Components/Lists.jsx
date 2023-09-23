@@ -31,7 +31,7 @@ export const Lists = () => {
                                 checked={isChecked[i]}
                                 onChange={() => handleCheckbox(i)}
                             />
-                            <li>{el}</li>
+                             <li>{el}</li>
                             {isChecked[i] && (
                                 <button onClick={() => handleDelete(i)}>Delete</button>
                             )}

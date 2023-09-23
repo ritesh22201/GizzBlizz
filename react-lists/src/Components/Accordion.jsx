@@ -34,7 +34,7 @@ export const Accordion = () => {
               onClick={() => handleOpen(i)}
               style={{ backgroundColor: "gray" }}
             >
-              {el.q} {isOpen === i ? <AiOutlineDown /> : <AiOutlineUp />}
+               {el.q} {isOpen === i ? <AiOutlineDown /> : <AiOutlineUp />}
             </div>
             {isOpen === i && (
               <div>
