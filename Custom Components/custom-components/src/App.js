@@ -5,7 +5,8 @@ import Button from './components/Button';
 function App() {
   return (
     <div className="App">
-      <Button  colorScheme='teal'>My Button</Button>
+      <Button colorScheme='teal'>My Button</Button>
+      <br/>
       <Button colorScheme='blue'>Click me</Button>
     </div>
   );
