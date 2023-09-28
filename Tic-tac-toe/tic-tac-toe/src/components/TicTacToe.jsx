@@ -20,14 +20,17 @@ const TicTacToe = () => {
        [0,4,8],
        [2,4,6]
     ]
-    
+
     const handleInput = (e = '',n) => {
         if (board[n] !== '') {
             return;
         }
+        
+        if(board[n] === outcomeArr[n])
 
         board[n] = currentPlayerText ? 'X' : 'O';
         setCurrentPlayerText(!currentPlayerText);
+
         if(board[n] === 'X'){
             e.target.style.color = '#37c6c0'
         }
