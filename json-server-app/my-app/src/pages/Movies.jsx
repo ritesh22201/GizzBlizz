@@ -20,7 +20,8 @@ const Movies = () => {
 
     return (
         <Box>
-            <Input type='text' ref={timeRef} value={movieData} onChange={(e) => setMovieData(e.target.value)} placeholder='Search a movie...' />
+            <Input w={'30%'} m={'20px auto'} type='text' ref={timeRef} value={movieData} onChange={(e) => setMovieData(e.target.value)} placeholder='Search a movie...' />
+            
         </Box>
     )
 }
