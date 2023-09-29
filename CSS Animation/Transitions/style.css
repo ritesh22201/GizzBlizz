@@ -7,8 +7,7 @@
     padding: 32px;
     border: 10px solid;
     &:hover .box{
-        /* height: 300px; */
-        margin-top: 200px;
+        height: 300px;
     }
 }
 
@@ -19,6 +18,7 @@
     transition-duration: 1s;
 }
 
+
 .b1{
     background-color: red;
     transition-timing-function: ease;
@@ -28,20 +28,27 @@
     background-color: yellow;
     transition-timing-function: linear;
 }
+
 .b3{
     background-color: orange;
     transition-timing-function: ease-in;
 }
+
 .b4{
     background-color: green;
     transition-timing-function: ease-out;
 }
+
 .b5{
     background-color: blue;
     transition-timing-function: ease-in-out;
 }
 
 .b6{
-    background-color: cornflowerblue;
-    transition-timing-function: cubic-bezier(0.97,-0.15, 0.11, 1.18);
+    background-color: blue;
+    transition-timing-function: ease-in-out;
 }
+
+
+
+
