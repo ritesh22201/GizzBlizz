@@ -1,0 +1,173 @@
+{
+    "products": [
+        {
+            "id": 87,
+            "title": "Women Blue Oversized Zip-Through Hoodie",
+            "price": 2299,
+            "gender": "women",
+            "categories": "hoodies",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+            "description": "Oversized zip-through hoodie in sweatshirt fabric made from a cotton blend with a lined, drawstring hood, zip down the front and front pockets. Dropped shoulders, long sleeves and ribbing at the cuffs and hem. Soft brushed inside.",
+            "category": "Women's Clothing",
+            "brand": "H&M",
+            "color": "blue",
+            "discount": 10,
+            "off_price": 2399,
+            "images": {
+                "image1": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/d500ab0e-bdc3-4ff6-a0ca-9dd3cf1a9db51632884597096HMWomenBlueOversizedZip-ThroughHoodie1.jpg",
+                "image2": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/a6dca512-5899-438f-939e-f7663fca48051632884597106HMWomenBlueOversizedZip-ThroughHoodie2.jpg",
+                "image3": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/e346968f-3b37-47c6-996e-b921e12400b51632884597117HMWomenBlueOversizedZip-ThroughHoodie3.jpg",
+                "image4": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/d7538cfb-e00c-4a10-9edf-d0ecd3eac83f1632884597128HMWomenBlueOversizedZip-ThroughHoodie4.jpg"
+            },
+            "ratings": 4.8,
+            "count": 25
+        },
+        {
+            "id": 88,
+            "title": "Women Black Solid Chunky Combat Boots",
+            "price": 2699,
+            "gender": "women",
+            "categories": "boots",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+            "description": "Combat boots with chunky, patterned soles, lacing at the front, a zip in one side and a loop at the back.",
+            "category": "Women's Footwear",
+            "brand": "H&M",
+            "color": "black",
+            "discount": "20",
+            "off_price": 2899,
+            "images": {
+                "image1": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15674090/2021/9/30/afaff65c-4bb5-4f76-a15e-fad7ac12dcf61632997313239Chunkycombatboots3.jpg",
+                "image2": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15674090/2021/9/30/3027a850-cbd1-45f0-9246-7ddd20463da01632997313348Chunkycombatboots4.jpg",
+                "image3": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15674090/2021/9/30/1bda9625-d20a-4105-84d7-0a50cf6ddadd1632997313456Chunkycombatboots5.jpg"
+            },
+            "ratings": 4.6,
+            "count": 135
+        },
+        {
+            "id": 89,
+            "title": "Women White & Black Acrylic Jumper",
+            "price": 799,
+            "gender": "women",
+            "categories": "sweatshirt",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+            "description": "Jumper in a soft knit with low dropped shoulders, extra-long sleeves and ribbing around the neckline, cuffs and hem.",
+            "category": "Women's Clothing",
+            "brand": "H&M",
+            "color": "white",
+            "discount": 35,
+            "off_price": 1199,
+            "images": {
+                "image1": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15809062/2021/10/13/4f6d1445-f481-4d06-b0b9-6d6de7da9d261634063934609Jumper1.jpg",
+                "image2": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15809062/2021/10/13/cc2a731a-4289-4118-a4d2-0e068e9754261634063934421Jumper2.jpg",
+                "image3": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15809062/2021/10/13/b8de7c0c-b981-444d-9cb9-b1ce649e0cd81634063934566Jumper3.jpg",
+                "image4": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15809062/2021/10/13/6668306f-2dd3-4b95-867a-ce1d6b1d9f211634063934575Jumper4.jpg"
+            },
+            "ratings": 4.7,
+            "count": 246
+        },
+        {
+            "id": 90,
+            "title": "Women Off-White Solid Short Cardigan",
+            "price": 1299,
+            "gender": "women",
+            "categories": "cardigan",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+            "description": "Short cardigan in a soft knit with a V-neck and buttons down the front. Gently dropped shoulders, long sleeves and ribbing around the opening, cuffs and hem.",
+            "category": "Women's Clothing",
+            "brand": "H&M",
+            "color": "Off-White",
+            "discount": 30,
+            "off_price": 1599,
+            "images": {
+                "image1": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/1/15/97359bce-6e02-4744-ba62-946bc858c6de1610689986574-3.jpg",
+                "image2": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/1/15/d490b66a-08b5-4c1d-aaa3-e3c039acf54e1610689986592-4.jpg",
+                "image3": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/1/15/aa71abbb-d333-4e57-b0f3-48d0eaa781631610689986608-5.jpg"
+            },
+            "ratings": 4.4,
+            "count": 66
+        },
+        {
+            "id": 91,
+            "title": "Women Pink Solid Cropped Sweatshirt",
+            "price": 799,
+            "gender": "women",
+            "categories": "sweatshirt",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+            "description": "Cropped top in soft sweatshirt fabric with a small embroidered detail at the top. Round neckline, dropped shoulders and long sleeves. Ribbing around the neckline, cuffs and hem.",
+            "category": "Women's Clothing",
+            "brand": "H&M",
+            "color": "pink",
+            "discount": 10,
+            "off_price": 809,
+            "images": {
+                "image1": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15295806/2021/8/30/6b2b9a47-459c-4e3b-87a8-d55f6aacfd711630295993682Croppedsweatshirt1.jpg",
+                "image2": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15295806/2021/8/30/3219d5fe-c7f8-4a34-b09c-dcd67875e31e1630295993445Croppedsweatshirt2.jpg",
+                "image3": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15295806/2021/8/30/06d6e6e3-dae8-4be7-bdc2-b3c15ca5f2601630295993097Croppedsweatshirt3.jpg",
+                "image4": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15295806/2021/8/30/c45e8396-ac4e-4171-8d83-b13f736893441630295993288Croppedsweatshirt4.jpg"
+            },
+            "ratings": 4.5,
+            "count": 110
+        },
+        {
+            "id": 92,
+            "title": "Women Blue Oversized Zip-Through Hoodie",
+            "price": 2299,
+            "gender": "women",
+            "categories": "hoodies",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+            "description": "Oversized zip-through hoodie in sweatshirt fabric made from a cotton blend with a lined, drawstring hood, zip down the front and front pockets. Dropped shoulders, long sleeves and ribbing at the cuffs and hem. Soft brushed inside.",
+            "category": "Women's Clothing",
+            "brand": "H&M",
+            "color": "blue",
+            "discount": 10,
+            "off_price": 2399,
+            "images": {
+                "image1": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/d500ab0e-bdc3-4ff6-a0ca-9dd3cf1a9db51632884597096HMWomenBlueOversizedZip-ThroughHoodie1.jpg",
+                "image2": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/a6dca512-5899-438f-939e-f7663fca48051632884597106HMWomenBlueOversizedZip-ThroughHoodie2.jpg",
+                "image3": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/e346968f-3b37-47c6-996e-b921e12400b51632884597117HMWomenBlueOversizedZip-ThroughHoodie3.jpg",
+                "image4": "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15630064/2021/9/29/d7538cfb-e00c-4a10-9edf-d0ecd3eac83f1632884597128HMWomenBlueOversizedZip-ThroughHoodie4.jpg"
+            },
+            "ratings": 4.8,
+            "count": 25
+        }
+    ],
+    "users" : [
+        {"id" : 1, "userName" : "Ritesh Goswami", "age" : 25}
+    ]
+}
