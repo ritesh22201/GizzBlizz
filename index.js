@@ -4,3 +4,4 @@ function sumOfNaturalNums(n) {
 
 sumOfNaturalNums(100000);
 sumOfNaturalNums(8000000);
+sumOfNaturalNums(10000000);
