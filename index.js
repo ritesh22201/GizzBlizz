@@ -3,4 +3,4 @@ function sumOfNaturalNums(n) {
 }
 
 sumOfNaturalNums(100000);
-sumOfNaturalNums(4000000);
+sumOfNaturalNums(8000000);
